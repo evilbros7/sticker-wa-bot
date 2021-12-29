@@ -148,9 +148,9 @@ const main = async () => {
         const mediaSticker = await conn.downloadAndSaveMediaMessage({
           message: mek.message,
         });
-        // "<{PVX}> BOT ??"
+        // "<{PVX}> BOT 🤖"
         const webpWithMetadataSticker = await WSF.setMetadata(
-          "BOT ??",
+          "BOT 🤖",
           "pvxcommunity.com",
           mediaSticker
         );
@@ -212,14 +212,14 @@ const main = async () => {
       switch (command) {
         case "alive":
         case "a":
-          reply(`*-? <{PVX}> BOT ? -*\n\nYES! BOT IS ALIVE !!!`);
+          reply(`*─「 <{PVX}> BOT 」 ─*\n\nYES! BOT IS ALIVE !!!`);
           break;
 
         case "delete":
         case "d":
           try {
             if (!mek.message.extendedTextMessage) {
-              reply(`? Tag message of bot to delete.`);
+              reply(`❌ Tag message of bot to delete.`);
               return;
             }
             if (
@@ -234,11 +234,11 @@ const main = async () => {
                 fromMe: true,
               });
             } else {
-              reply(`? Tag message of bot to delete.`);
+              reply(`❌ Tag message of bot to delete.`);
             }
           } catch (err) {
             console.log(err);
-            reply(`? Error!`);
+            reply(`❌ Error!`);
           }
           break;
 
@@ -246,11 +246,11 @@ const main = async () => {
         case "zero":
           try {
             if (!isGroup) {
-              reply("? Group command only!");
+              reply("❌ Group command only!");
               return;
             }
             if (!allowedNumb.includes(sender)) {
-              reply(`? Not Allowed!`);
+              reply(`❌ Not Allowed!`);
               return;
             }
             let resultCountGroupIndi = await getCountGroupMembersTM(from);
@@ -267,7 +267,7 @@ const main = async () => {
             reply(zeroMsg);
           } catch (err) {
             console.log(err);
-            reply(`? Error!`);
+            reply(`❌ Error!`);
           }
           break;
 
@@ -275,15 +275,15 @@ const main = async () => {
         case "pvxg":
           try {
             if (!isGroup) {
-              reply("? Group command only!");
+              reply("❌ Group command only!");
               return;
             }
             if (!allowedNumb.includes(sender)) {
-              reply(`? Not Allowed!`);
+              reply(`❌ Not Allowed!`);
               return;
             }
             let resultCountGroup = await getCountGroups();
-            let countGroupMsg = `*?? PVX GROUP STATS ??*\n_From 24 Nov 2021_\n`;
+            let countGroupMsg = `*📛 PVX GROUP STATS 📛*\n_From 24 Nov 2021_\n`;
 
             let countGroupMsgTemp = "\n";
             let totalGrpCount = 0;
@@ -306,7 +306,7 @@ const main = async () => {
             reply(countGroupMsg);
           } catch (err) {
             console.log(err);
-            reply(`? Error!`);
+            reply(`❌ Error!`);
           }
           break;
 
@@ -314,16 +314,16 @@ const main = async () => {
         case "pvxt":
           try {
             if (!isGroup) {
-              reply("? Group command only!");
+              reply("❌ Group command only!");
               return;
             }
             if (!allowedNumb.includes(sender)) {
-              reply(`? Not Allowed!`);
+              reply(`❌ Not Allowed!`);
               return;
             }
 
             let resultCountGroupTop = await getCountTop();
-            let countGroupMsgTop = `*?? PVX TOP MEMBERS ??*\n_From 24 Nov 2021_\n`;
+            let countGroupMsgTop = `*📛 PVX TOP MEMBERS 📛*\n_From 24 Nov 2021_\n`;
 
             let countGroupMsgTempTop = "\n";
             let totalGrpCountTop = 0;
@@ -343,7 +343,7 @@ const main = async () => {
             reply(countGroupMsgTop);
           } catch (err) {
             console.log(err);
-            reply(`? Error!`);
+            reply(`❌ Error!`);
           }
           break;
 
@@ -351,16 +351,16 @@ const main = async () => {
         case "pvxv":
           try {
             if (!isGroup) {
-              reply("? Group command only!");
+              reply("❌ Group command only!");
               return;
             }
             // if (!allowedNumb.includes(sender)) {
-            //   reply(`? Not Allowed!`);
+            //   reply(`❌ Not Allowed!`);
             //   return;
             // }
 
             let resultCountGroupIndi = await getCountVideo(mano);
-            let countGroupMsgIndi = `*?? MANO VIDEO COUNT*\n_From 13 DEC 2021_${readMore}\n`;
+            let countGroupMsgIndi = `*📛 MANO VIDEO COUNT*\n_From 13 DEC 2021_${readMore}\n`;
             let memWithMsg = new Set();
             for (let member of resultCountGroupIndi) {
               memWithMsg.add(member.memberjid);
@@ -400,18 +400,18 @@ const main = async () => {
             reply(countGroupMsgIndi);
           } catch (err) {
             console.log(err);
-            reply(`? Error!`);
+            reply(`❌ Error!`);
           }
           break;
         /* --------------------------------- pvxm --------------------------------- */
         case "pvxm":
           try {
             if (!isGroup) {
-              reply("? Group command only!");
+              reply("❌ Group command only!");
               return;
             }
             if (!allowedNumb.includes(sender)) {
-              reply(`? Not Allowed!`);
+              reply(`❌ Not Allowed!`);
               return;
             }
 
@@ -456,7 +456,7 @@ const main = async () => {
             reply(countGroupMsgIndi);
           } catch (err) {
             console.log(err);
-            reply(`? Error!`);
+            reply(`❌ Error!`);
           }
           break;
 
@@ -465,15 +465,15 @@ const main = async () => {
         case "pvxgg":
           try {
             if (!isGroup) {
-              reply("? Group command only!");
+              reply("❌ Group command only!");
               return;
             }
             if (!allowedNumb.includes(sender)) {
-              reply(`? Not Allowed!`);
+              reply(`❌ Not Allowed!`);
               return;
             }
             let resultCountGroup = await getCountGroupsTM();
-            let countGroupMsg = `*?? PVX GROUP STATS ??*\n_THIS MONTH_\n`;
+            let countGroupMsg = `*📛 PVX GROUP STATS 📛*\n_THIS MONTH_\n`;
 
             let countGroupMsgTemp = "\n";
             let totalGrpCount = 0;
@@ -496,7 +496,7 @@ const main = async () => {
             reply(countGroupMsg);
           } catch (err) {
             console.log(err);
-            reply(`? Error!`);
+            reply(`❌ Error!`);
           }
           break;
 
@@ -504,16 +504,16 @@ const main = async () => {
         case "pvxtt":
           try {
             if (!isGroup) {
-              reply("? Group command only!");
+              reply("❌ Group command only!");
               return;
             }
             if (!allowedNumb.includes(sender)) {
-              reply(`? Not Allowed!`);
+              reply(`❌ Not Allowed!`);
               return;
             }
 
             let resultCountGroupTop = await getCountTopTM();
-            let countGroupMsgTop = `*?? PVX TOP MEMBERS ??*\n_THIS MONTH_\n`;
+            let countGroupMsgTop = `*📛 PVX TOP MEMBERS 📛*\n_THIS MONTH_\n`;
 
             let countGroupMsgTempTop = "\n";
             let totalGrpCountTop = 0;
@@ -533,7 +533,7 @@ const main = async () => {
             reply(countGroupMsgTop);
           } catch (err) {
             console.log(err);
-            reply(`? Error!`);
+            reply(`❌ Error!`);
           }
           break;
 
@@ -541,11 +541,11 @@ const main = async () => {
         case "pvxmm":
           try {
             if (!isGroup) {
-              reply("? Group command only!");
+              reply("❌ Group command only!");
               return;
             }
             if (!allowedNumb.includes(sender)) {
-              reply(`? Not Allowed!`);
+              reply(`❌ Not Allowed!`);
               return;
             }
 
@@ -590,7 +590,7 @@ const main = async () => {
             reply(countGroupMsgIndi);
           } catch (err) {
             console.log(err);
-            reply(`? Error!`);
+            reply(`❌ Error!`);
           }
           break;
 
@@ -598,11 +598,11 @@ const main = async () => {
         case "pvxstats":
           try {
             if (!isGroup) {
-              reply("? Group command only!");
+              reply("❌ Group command only!");
               return;
             }
             if (!allowedNumb.includes(sender)) {
-              reply(`? Not Allowed!`);
+              reply(`❌ Not Allowed!`);
               return;
             }
 
@@ -621,7 +621,7 @@ const main = async () => {
               });
             // console.log(groups);
 
-            let pvxMsg = `*?? PVX STATS ??*${readMore}`;
+            let pvxMsg = `*📛 PVX STATS 📛*${readMore}`;
             let totalMem = 0;
             let uniqueMem = new Set();
             let temppvxMsg = "";
@@ -650,17 +650,17 @@ const main = async () => {
             reply(pvxMsg);
           } catch (err) {
             console.log(err);
-            reply(`? Error!`);
+            reply(`❌ Error!`);
           }
           break;
 
         case "tg":
           if ("919557666582@s.whatsapp.net" !== sender) {
-            reply(`? Owner only command for avoiding spam!`);
+            reply(`❌ Owner only command for avoiding spam!`);
             return;
           }
           if (!isTaggedDocument) {
-            reply(`? Send zip document file!`);
+            reply(`❌ Send zip document file!`);
             return;
           }
 
@@ -682,7 +682,7 @@ const main = async () => {
             let stickerCounttg = zipEntries.length;
             console.log("extracted: files " + stickerCounttg);
 
-            reply(`? Sending all ${stickerCounttg} stickers`);
+            reply(`✔ Sending all ${stickerCounttg} stickers`);
             let itg = -1;
             setIntervaltg = setInterval(async () => {
               itg += 1;
@@ -690,7 +690,7 @@ const main = async () => {
               //last file
               if (itg >= stickerCounttg - 1) {
                 clearInterval(setIntervaltg);
-                reply(`? Finished!`);
+                reply(`✔ Finished!`);
               }
               console.log("Sending sticker ", itg);
               if (zipEntries[itg].entryName.endsWith(".webp")) {
@@ -701,7 +701,7 @@ const main = async () => {
                   : "/";
                 filepath += `${zipEntries[itg].entryName}`;
 
-                //"<{PVX}> BOT ??"
+                //"<{PVX}> BOT 🤖"
                 //"https://pvxcommunity.com"
                 const webpWithMetadatatg = await WSF.setMetadata(
                   "",
@@ -717,7 +717,7 @@ const main = async () => {
             }, 0);
           } catch (err) {
             console.log(err);
-            reply(`? Some error came!`);
+            reply(`❌ Some error came!`);
           }
           break;
       }
