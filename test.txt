@@ -1,0 +1,2 @@
+heroku logs -a wa-bot-pvx-arin --tail
+
