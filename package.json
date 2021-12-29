@@ -13,6 +13,6 @@
     "@adiwajshing/baileys": "^3.5.3",
     "express": "^4.17.2",
     "pg": "^8.7.1",
-    "wa-sticker-formatter": "^4.2.0"
+    "wa-sticker-formatter": "^3.6.0"
   }
 }
