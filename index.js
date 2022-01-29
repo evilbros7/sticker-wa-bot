@@ -283,7 +283,7 @@ const main = async () => {
               return;
             }
             let resultCountGroup = await getCountGroups();
-            let countGroupMsg = `*📛 PVX GROUP STATS 📛*\n_From 24 Nov 2021_\n`;
+            let countGroupMsg = `*📛 PVX GROUP STATS 📛*\n_From 24 Nov 2021_${readMore}\n`;
 
             let countGroupMsgTemp = "\n";
             let totalGrpCount = 0;
@@ -323,7 +323,7 @@ const main = async () => {
             }
 
             let resultCountGroupTop = await getCountTop();
-            let countGroupMsgTop = `*📛 PVX TOP MEMBERS 📛*\n_From 24 Nov 2021_\n`;
+            let countGroupMsgTop = `*📛 PVX TOP MEMBERS 📛*\n_From 24 Nov 2021_${readMore}\n`;
 
             let countGroupMsgTempTop = "\n";
             let totalGrpCountTop = 0;
@@ -473,7 +473,7 @@ const main = async () => {
               return;
             }
             let resultCountGroup = await getCountGroupsTM();
-            let countGroupMsg = `*📛 PVX GROUP STATS 📛*\n_THIS MONTH_\n`;
+            let countGroupMsg = `*📛 PVX GROUP STATS 📛*\n_THIS MONTH_${readMore}\n`;
 
             let countGroupMsgTemp = "\n";
             let totalGrpCount = 0;
@@ -513,7 +513,7 @@ const main = async () => {
             }
 
             let resultCountGroupTop = await getCountTopTM();
-            let countGroupMsgTop = `*📛 PVX TOP MEMBERS 📛*\n_THIS MONTH_\n`;
+            let countGroupMsgTop = `*📛 PVX TOP MEMBERS 📛*\n_THIS MONTH_${readMore}\n`;
 
             let countGroupMsgTempTop = "\n";
             let totalGrpCountTop = 0;
