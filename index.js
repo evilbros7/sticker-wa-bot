@@ -36,17 +36,19 @@ const {
 } = require("./tmDB");
 const { setCountVideo, getCountVideo } = require("./videoDB");
 
-prefix = "?";
+prefix = ".";
 
-let pvxstickeronly1 = "919557666582-1628610549@g.us";
-let pvxstickeronly2 = "919557666582-1586018947@g.us";
-let mano = "19016677357-1630334490@g.us";
+//let pvxstickeronly1 = "919557666582-1628610549@g.us";
+//let pvxstickeronly2 = "919557666582-1586018947@g.us";
+//let mano = "19016677357-1630334490@g.us";
 
 let allowedNumb = [
-  "919557666582@s.whatsapp.net",
-  "918384813814@s.whatsapp.net",
-  "919096501846@s.whatsapp.net",
-  "917021298661@s.whatsapp.net",
+  "917887499710@s.whatsapp.net",
+  "918140518602@s.whatsapp.net",
+  "447763214517@s.whatsapp.net",
+  "918523835259@s.whatsapp.net",
+  "917988639960@s.whatsapp.net",
+  "919673849935@s.whatsapp.net",
 ];
 
 const more = String.fromCharCode(8206);
@@ -122,51 +124,49 @@ const main = async () => {
 
       if (
         isGroup &&
-        groupName.toUpperCase().includes("<{PVX}>") &&
-        from !== pvxstickeronly1 &&
-        from != pvxstickeronly2
+        groupName.toUpperCase().includes("<{EV1LZ}>")
       ) {
         setCountMember(sender, from);
         setCountMemberTM(sender, from);
       }
 
       //count video
-      if (isGroup && mek.message.videoMessage && from == mano) {
-        setCountVideo(sender, from);
-      }
+     // if (isGroup && mek.message.videoMessage && from == mano) {
+    //    setCountVideo(sender, from);
+    //  }
 
-      if (
-        isGroup &&
-        mek.message.stickerMessage &&
-        groupName.startsWith("<{PVX}>") &&
-        from !== pvxstickeronly1 &&
-        from != pvxstickeronly2 &&
-        from !== mano
-      ) {
+    //  if (
+   //     isGroup &&
+  //      mek.message.stickerMessage &&
+  //      groupName.startsWith("<{PVX}>") &&
+   //     from !== pvxstickeronly1 &&
+   //     from != pvxstickeronly2 &&
+  //      from !== mano
+  //    ) {
         // mek.key.fromMe == false &&
         // SEND STICKER
-        const mediaSticker = await conn.downloadAndSaveMediaMessage({
-          message: mek.message,
-        });
+     //   const mediaSticker = await conn.downloadAndSaveMediaMessage({
+        //  message: mek.message,
+      //  });
         // "<{PVX}> BOT 🤖"
-        const webpWithMetadataSticker = await WSF.setMetadata(
-          "BOT 🤖",
-          "pvxcommunity.com",
-          mediaSticker
-        );
-        await conn.sendMessage(
-          pvxstickeronly1,
-          webpWithMetadataSticker,
-          MessageType.sticker
-        );
-        await conn.sendMessage(
-          pvxstickeronly2,
-          webpWithMetadataSticker,
-          MessageType.sticker
-        );
-        console.log(`${countSent} sticker sent!`);
-        countSent += 1;
-      }
+     //   const webpWithMetadataSticker = await WSF.setMetadata(
+     //     "BOT 🤖",
+     //     "pvxcommunity.com",
+    //      mediaSticker
+   //     );
+   ///     await conn.sendMessage(
+         // pvxstickeronly1,
+        // webpWithMetadataSticker,
+        //  MessageType.sticker
+      //  );
+      //  await conn.sendMessage(
+      //    pvxstickeronly2,
+      //    webpWithMetadataSticker,
+        //  MessageType.sticker
+      //  );
+     //   console.log(`${countSent} sticker sent!`);
+     //   countSent += 1;
+    /  }
 
       if (!isCmd) return;
 
@@ -200,22 +200,14 @@ const main = async () => {
         conn.sendMessage(from, message, MessageType.text);
       };
 
-      // send every command info to my whatsapp, won't work when i send something for bot
-      if ("919557666582@s.whatsapp.net" !== sender) {
-        await conn.sendMessage(
-          "919557666582@s.whatsapp.net",
-          `[${prefix}${command}] [${groupName}]`,
-          MessageType.text
-        );
-      }
 
       switch (command) {
         case "alive":
         case "a":
-          reply(`*─「 <{PVX}> BOT 」 ─*\n\nYES! BOT IS ALIVE !!!`);
+          reply(`*─「 YES! BOT IS ALIVE !!! 」`);
           break;
 
-        case "delete":
+        case "del":
         case "d":
           try {
             if (!mek.message.extendedTextMessage) {
@@ -272,7 +264,7 @@ const main = async () => {
           break;
 
         /* --------------------------------- pvxg --------------------------------- */
-        case "pvxg":
+        case "gstats":
           try {
             if (!isGroup) {
               reply("❌ Group command only!");
@@ -283,7 +275,7 @@ const main = async () => {
               return;
             }
             let resultCountGroup = await getCountGroups();
-            let countGroupMsg = `*📛 PVX GROUP STATS 📛*\n_From 24 Nov 2021_${readMore}\n`;
+            let countGroupMsg = `*🍁 ${groupName} GROUP STATS 🍁*\n_From 12 Feb 2022_${readMore}\n`;
 
             let countGroupMsgTemp = "\n";
             let totalGrpCount = 0;
@@ -311,7 +303,8 @@ const main = async () => {
           break;
 
         /* --------------------------------- pvxt --------------------------------- */
-        case "pvxt":
+        case "topmember":
+        case "tm":  
           try {
             if (!isGroup) {
               reply("❌ Group command only!");
@@ -323,7 +316,7 @@ const main = async () => {
             }
 
             let resultCountGroupTop = await getCountTop();
-            let countGroupMsgTop = `*📛 PVX TOP MEMBERS 📛*\n_From 24 Nov 2021_${readMore}\n`;
+            let countGroupMsgTop = `*🍁 ${groupName} TOP MEMBERS 🍁*\n_From 12 Feb 2022_${readMore}\n`;
 
             let countGroupMsgTempTop = "\n";
             let totalGrpCountTop = 0;
@@ -348,7 +341,7 @@ const main = async () => {
           break;
 
         /* --------------------------------- pvxv --------------------------------- */
-        case "pvxv":
+        case "vc":
           try {
             if (!isGroup) {
               reply("❌ Group command only!");
@@ -404,7 +397,8 @@ const main = async () => {
           }
           break;
         /* --------------------------------- pvxm --------------------------------- */
-        case "pvxm":
+        case "groupm":
+        case "gm":  
           try {
             if (!isGroup) {
               reply("❌ Group command only!");
@@ -422,7 +416,7 @@ const main = async () => {
               memWithMsg.add(member.memberjid);
             }
 
-            let countGroupMsgIndi = `*${groupName}*\n_From 24 Nov 2021_${readMore}\n`;
+            let countGroupMsgIndi = `*${groupName}*\n_From 12 Feb 2022_${readMore}\n`;
 
             let countGroupMsgTempIndi = "\n";
             let totalGrpCountIndi = 0;
@@ -462,7 +456,7 @@ const main = async () => {
 
         /* ---------------------------- THIS MONTH STATS ---------------------------- */
         /* --------------------------------- pvxgg --------------------------------- */
-        case "pvxgg":
+        case "gstats":
           try {
             if (!isGroup) {
               reply("❌ Group command only!");
@@ -473,7 +467,7 @@ const main = async () => {
               return;
             }
             let resultCountGroup = await getCountGroupsTM();
-            let countGroupMsg = `*📛 PVX GROUP STATS 📛*\n_THIS MONTH_${readMore}\n`;
+            let countGroupMsg = `*🍁 ${groupName} STATS 🍁*\n_THIS MONTH_${readMore}\n`;
 
             let countGroupMsgTemp = "\n";
             let totalGrpCount = 0;
@@ -481,10 +475,10 @@ const main = async () => {
               try {
                 let mdpvx = await conn.groupMetadata(group.groupjid);
                 let grpName = mdpvx.subject;
-                if (!grpName || !grpName.toUpperCase().includes("<{PVX}>"))
+                if (!grpName || !grpName.toUpperCase().includes("<{EV1LZ}>"))
                   continue; //not a pvx group
                 // grpName = grpName.split(" ")[1];
-                grpName = grpName.replace("<{PVX}> ", "");
+                grpName = grpName.replace("<{EV1LZ}> ", "");
                 totalGrpCount += Number(group.count);
                 countGroupMsgTemp += `\n${group.count} - ${grpName}`;
               } catch (err) {
@@ -501,7 +495,7 @@ const main = async () => {
           break;
 
         /* --------------------------------- pvxtt --------------------------------- */
-        case "pvxtt":
+        case "tmembers":
           try {
             if (!isGroup) {
               reply("❌ Group command only!");
@@ -513,7 +507,7 @@ const main = async () => {
             }
 
             let resultCountGroupTop = await getCountTopTM();
-            let countGroupMsgTop = `*📛 PVX TOP MEMBERS 📛*\n_THIS MONTH_${readMore}\n`;
+            let countGroupMsgTop = `*🥳 TOP MEMBERS 🥳*\n_THIS MONTH_${readMore}\n`;
 
             let countGroupMsgTempTop = "\n";
             let totalGrpCountTop = 0;
@@ -538,7 +532,8 @@ const main = async () => {
           break;
 
         /* --------------------------------- pvxmm --------------------------------- */
-        case "pvxmm":
+        case "monthstats":
+        case "ms":
           try {
             if (!isGroup) {
               reply("❌ Group command only!");
@@ -595,7 +590,7 @@ const main = async () => {
           break;
 
         /* ------------------------------- CASE: PVXSTATS ------------------------------ */
-        case "pvxstats":
+        case "stats":
           try {
             if (!isGroup) {
               reply("❌ Group command only!");
@@ -621,7 +616,7 @@ const main = async () => {
               });
             // console.log(groups);
 
-            let pvxMsg = `*📛 PVX STATS 📛*${readMore}`;
+            let pvxMsg = `*🍁 ${groupName} STATS 🍁*${readMore}`;
             let totalMem = 0;
             let uniqueMem = new Set();
             let temppvxMsg = "";
@@ -655,7 +650,7 @@ const main = async () => {
           break;
 
         case "tg":
-          if ("919557666582@s.whatsapp.net" !== sender) {
+          if ("917887499710@s.whatsapp.net" !== sender) {
             reply(`❌ Owner only command for avoiding spam!`);
             return;
           }
@@ -705,7 +700,7 @@ const main = async () => {
                 //"https://pvxcommunity.com"
                 const webpWithMetadatatg = await WSF.setMetadata(
                   "",
-                  "pvxcommunity.com",
+                  "",
                   filepath
                 );
                 await conn.sendMessage(
