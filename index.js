@@ -166,7 +166,7 @@ const main = async () => {
       //  );
      //   console.log(`${countSent} sticker sent!`);
      //   countSent += 1;
-    /  }
+    //  }
 
       if (!isCmd) return;
 
